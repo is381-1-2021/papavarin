@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:midterm_app/models/form.dart';
+import 'package:midterm_app/model/formModel.dart';
+import 'package:midterm_app/pages/1login.dart';
+import 'package:midterm_app/pages/2home.dart';
+import 'package:midterm_app/pages/3profile.dart';
+import 'package:midterm_app/pages/4fav.dart';
+import 'package:midterm_app/pages/5search.dart';
+import 'package:midterm_app/pages/6flashcard.dart';
+import 'package:midterm_app/pages/7notification.dart';
+import 'package:midterm_app/pages/8settings.dart';
+import 'package:midterm_app/pages/9flash_card.dart';
+import 'package:midterm_app/pages/editEmail.dart';
+import 'package:midterm_app/pages/editFirstName.dart';
+import 'package:midterm_app/pages/editLastName.dart';
+import 'package:midterm_app/pages/editPassword.dart';
 import 'package:provider/provider.dart';
-
-import 'pages/search.dart';
-import 'pages/inside folder.dart';
-import 'pages/all pages.dart';
-import 'pages/fourthpage.dart';
-import 'pages/fifthpage.dart';
-import 'pages/sixthpage.dart';
 
 void main() {
   runApp(
@@ -26,70 +32,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: Colors.blue,
-        accentColor: Colors.green,
-        textTheme: TextTheme(
-          bodyText2: TextStyle(color: Colors.purple),
-        ),
+        fontFamily: "Nunito",
       ),
-      initialRoute: '/3',
-      routes: <String, WidgetBuilder>{
-        '/1': (context) => FirstPage(),
-        '/2': (context) => SecondPage(),
-        '/3': (context) => ThirdPage(),
-        '/4': (context) => FourthPage(),
-        '/5': (context) => FifthPage(),
-        '/6': (context) => SixthPage(),
+      debugShowCheckedModeBanner: false,
+      home: LoginPage(),
+      routes: {
+        '/Login': (context) => LoginPage(),
+        '/Home': (context) => MyHomePage(),
+        '/Profile': (context) => ProfilePage(),
+        '/Favorite': (context) => FavoritePage(),
+        '/Search': (context) => SearchPage(),
+        '/FlashCard': (context) => FlashCardPage(),
+        '/Settings': (context) => SettingsPage(),
+        '/Notification': (context) => NotificationPage(),
+        '/3': (context) => EditFirstName(),
+        '/4': (context) => EditLastName(),
+        '/5': (context) => EditEmail(),
+        '/6': (context) => EditPassword(),
+        '/7': (context) => FlashCard(),
       },
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), //
     );
   }
 }

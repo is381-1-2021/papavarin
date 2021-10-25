@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class FirstPage extends StatefulWidget {
+class SearchPage extends StatefulWidget {
   @override
-  _FirstPageState createState() => _FirstPageState();
+  _SearchPageState createState() => _SearchPageState();
 }
 
-class _FirstPageState extends State<FirstPage>
+class _SearchPageState extends State<SearchPage>
     with SingleTickerProviderStateMixin {
   late TabController controller;
   @override
@@ -18,12 +18,13 @@ class _FirstPageState extends State<FirstPage>
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.blue[300],
           title: Container(
+            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
             margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
             decoration: BoxDecoration(
-              color: Color.fromARGB(50, 255, 255, 255),
-              borderRadius: BorderRadius.all(Radius.circular(30.0)),
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
             child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,10 +35,10 @@ class _FirstPageState extends State<FirstPage>
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           hintText: "Search",
-                          hintStyle: TextStyle(color: Colors.white),
+                          hintStyle: TextStyle(color: Colors.grey[500]),
                           icon: Icon(
                             Icons.search,
-                            color: Colors.white,
+                            color: Colors.grey[600],
                           )),
                     ),
                   ),
@@ -50,9 +51,9 @@ class _FirstPageState extends State<FirstPage>
             unselectedLabelColor: Colors.white,
             tabs: <Widget>[
               Tab(text: 'All Result'),
-              Tab(text: 'Flash Card'),
-              Tab(text: 'folder'),
-              Tab(text: 'users'),
+              Tab(text: 'Flashcard'),
+              Tab(text: 'Folder'),
+              Tab(text: 'Users'),
             ],
           ),
         ),

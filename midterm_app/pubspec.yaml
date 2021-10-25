@@ -12,16 +12,28 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  flip_card: ^0.5.0
 
   cupertino_icons: ^1.0.2
   provider: ^6.0.1
-  image_form_field: ^0.1.0
+  flutter_keyboard_visibility: ^5.0.0
+  lottie: ^1.2.1
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: "^0.8.1"
+  flutter_native_splash: ^1.2.3
+  flutter_launcher_icons: "^0.9.0"
+
+flutter_native_splash:
+  android: true
+  ios: true
+  web: true
+  color: "#00AFFD"
+  image: "assets/images/splash_sc.png"
+  fullscreen: true
+
 
 flutter_icons:
   image_path: "assets/flashcardicon.png"
@@ -35,3 +47,10 @@ flutter_icons:
 flutter:
   uses-material-design: true
 
+assets:
+    - assets/images/
+    - assets/lottie/
+fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Bold.ttf
