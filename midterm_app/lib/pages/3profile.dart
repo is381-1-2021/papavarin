@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:midterm_app/controllers/card_controllers.dart';
 import 'package:midterm_app/model/formModel.dart';
 import 'package:midterm_app/pages/0NaviBar.dart';
 import 'package:midterm_app/pages/3profliebox.dart';
+import 'package:midterm_app/services/flashcard_services.dart';
 import 'package:provider/provider.dart';
+
+var services = FirebaseServices();
+var controller = CardController(services);
 
 class ProfilePage extends StatefulWidget {
   @override

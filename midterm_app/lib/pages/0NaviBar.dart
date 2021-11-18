@@ -9,9 +9,11 @@ class Navibar extends StatefulWidget {
 
 class _NavibarState extends State<Navibar> {
   final padding = EdgeInsets.symmetric(horizontal: 20);
+
   @override
   Widget build(BuildContext context) {
     final profileImage = "assets/images/Min.png";
+
     return Drawer(
       child: Material(
         color: Colors.blue[400],
@@ -140,12 +142,14 @@ class _NavibarState extends State<Navibar> {
           ),
         ),
       );
+
   Widget menuSideBar({
     required String text,
     required IconData icon,
     VoidCallback? onClicked,
   }) {
     final color = Colors.white;
+
     return ListTile(
       leading: Icon(
         icon,

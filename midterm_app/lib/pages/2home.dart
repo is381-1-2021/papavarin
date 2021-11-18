@@ -1,15 +1,46 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:midterm_app/controllers/card_controllers.dart';
 import 'package:midterm_app/model/formModel.dart';
 import 'package:midterm_app/pages/0NaviBar.dart';
 import 'package:midterm_app/pages/6flashcard.dart';
+import 'package:midterm_app/services/flashcard_services.dart';
 import 'package:provider/provider.dart';
+import 'package:midterm_app/model/card_model.dart' as cd;
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+var services = FirebaseServices();
+var controller = CardController(services);
 
 class MyHomePage extends StatefulWidget {
+  final CardController controller;
+
+  MyHomePage({required this.controller});
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  List<cd.Card> cards = List.empty();
+  bool isLoading = false;
+
+  void initState() {
+    super.initState();
+
+    widget.controller.onSync.listen(
+      (bool syncState) => setState(() => isLoading = syncState),
+    );
+  }
+
+  void _getCards() async {
+    var newCards = await widget.controller.fetchCards();
+
+    setState(() => cards = newCards);
+  }
+
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+
   int _pageState = 0;
 
   double _popupWidth = 0;
@@ -22,6 +53,11 @@ class _MyHomePageState extends State<MyHomePage> {
   double wdheight = 0;
 
   final _formkey3 = GlobalKey<FormState>();
+  final services = FirebaseServices();
+  final Future<FirebaseApp> firebase = Firebase.initializeApp();
+
+  CollectionReference collectionReference =
+      FirebaseFirestore.instance.collection("fc_cards");
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           );
                         },
                       ),
-                      SizedBox(height: 50),
+                      SizedBox(height: 40),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -157,17 +193,17 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ],
                       ),
-                      Consumer<FormModel>(builder: (context, model, child) {
+                      Consumer<FormModel>(builder: (context, cards, child) {
                         return Expanded(
-                          child: model.cardName.length > 0
+                          child: cards.cardName.length > 0
                               ? ListView.builder(
                                   padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-                                  itemCount: model.cardName.length,
+                                  itemCount: cards.cardName.length,
                                   itemBuilder: (context, index) {
                                     return CardTile(
                                       item: CardItem(
-                                        cardName: model.cardName[index],
-                                        subject: model.subject[index],
+                                        cardName: cards.cardName[index],
+                                        subject: cards.subject,
                                       ),
                                     );
                                   },
@@ -215,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     Form(
                       key: _formkey3,
                       child: Column(

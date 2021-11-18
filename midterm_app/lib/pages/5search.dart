@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:midterm_app/controllers/card_controllers.dart';
+import 'package:midterm_app/services/flashcard_services.dart';
+
+var services = FirebaseServices();
+var controller = CardController(services);
 
 class SearchPage extends StatefulWidget {
   @override

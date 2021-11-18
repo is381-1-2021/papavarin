@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FormModel extends ChangeNotifier {
@@ -22,18 +24,21 @@ class FormModel extends ChangeNotifier {
   }
 
   get firstName => this._firstName;
+
   set firstName(value) {
     this._firstName = value;
     notifyListeners();
   }
 
   get lastName => this._lastName;
+
   set lastName(value) {
     this._lastName = value;
     notifyListeners();
   }
 
   get password => this._password;
+
   set password(value) {
     this._password = value;
     notifyListeners();

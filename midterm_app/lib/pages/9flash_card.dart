@@ -124,6 +124,4 @@ class _FlashCardState extends State<FlashCard> {
       _currentIndex = (_currentIndex != 0) ? _currentIndex - 1 : 0;
     });
   }
-
-  FlipCard({required FlashcardBox front, required FlashcardBox back}) {}
 }
