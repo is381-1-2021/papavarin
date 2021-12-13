@@ -6,8 +6,8 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:lottie/lottie.dart';
-import 'package:midterm_app/model/profile.dart';
-import 'package:midterm_app/pages/homesignup.dart';
+import 'package:midterm_app/pages/home2.dart';
+import 'package:midterm_app/pages/profile.dart';
 import 'package:midterm_app/pages/welcome.dart';
 
 class LoginPage extends StatefulWidget {
@@ -47,7 +47,6 @@ class _LoginPageState extends State<LoginPage> {
   double wdheight = 0;
 
   bool _keyboardVisible = false;
-
   @override
   void initState() {
     super.initState();
@@ -352,7 +351,7 @@ class _LoginPageState extends State<LoginPage> {
                                                       context,
                                                       MaterialPageRoute(
                                                           builder: (context) {
-                                                    return MyHomePage2();
+                                                    return MyHomePage3();
                                                   }));
                                                 });
                                               } on FirebaseAuthException catch (e) {
@@ -540,7 +539,7 @@ class _LoginPageState extends State<LoginPage> {
                                           _signupCollection.add({
                                             "email": profile.email,
                                             "firstname": profile.firstname,
-                                            "lastname": profile.lastname
+                                            "lastname": profile.lastname,
                                           });
                                         }
                                       },

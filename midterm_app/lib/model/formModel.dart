@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FormModel extends ChangeNotifier {
@@ -7,6 +5,8 @@ class FormModel extends ChangeNotifier {
   String? _firstName;
   String? _lastName;
   String? _password;
+  bool _islogin = false;
+  String? _cardID;
 
   List<String> questions = <String>[];
   List<String> answers = <String>[];
@@ -41,6 +41,20 @@ class FormModel extends ChangeNotifier {
 
   set password(value) {
     this._password = value;
+    notifyListeners();
+  }
+
+  bool get islogin => this._islogin;
+
+  set islogin(bool value) {
+    this._islogin = value;
+    notifyListeners();
+  }
+
+  get cardID => this._cardID;
+
+  set CardID(value) {
+    this._cardID = value;
     notifyListeners();
   }
 

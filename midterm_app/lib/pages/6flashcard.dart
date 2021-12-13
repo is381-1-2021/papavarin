@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:midterm_app/controllers/card_controllers.dart';
-import 'package:midterm_app/services/flashcard_services.dart';
 import 'package:provider/provider.dart';
 import 'package:midterm_app/model/formModel.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-
-FirebaseFirestore firestore = FirebaseFirestore.instance;
-var services = FirebaseServices();
-var controller = CardController(services);
 
 class FlashCardPage extends StatelessWidget {
   String? name;
@@ -43,9 +35,6 @@ class _CreateFlashCardState extends State<CreateFlashCard> {
   double wdheight = 0;
 
   final _formkey3 = GlobalKey<FormState>();
-  final Future<FirebaseApp> firebase = Firebase.initializeApp();
-  CollectionReference cardsqa =
-      FirebaseFirestore.instance.collection("fc_flashcardqa");
 
   @override
   Widget build(BuildContext context) {
@@ -375,6 +364,7 @@ class CardTile extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           color: Colors.red[800]),
                     ),
+                    Icon(Icons.favorite)
                   ],
                 ),
               ),

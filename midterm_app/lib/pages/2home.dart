@@ -9,8 +9,8 @@ import 'package:provider/provider.dart';
 import 'package:midterm_app/model/card_model.dart' as cd;
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-var services = FirebaseServices();
-var controller = CardController(services);
+// var services = FirebaseServices();
+// var controller = CardController(services);
 
 class MyHomePage extends StatefulWidget {
   final CardController controller;

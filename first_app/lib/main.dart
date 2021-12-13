@@ -1,9 +1,13 @@
 import 'dart:ui';
 
 import 'package:firebase_core/firebase_core.dart';
+
 import 'package:first_app/controllers/todo_controller.dart';
+
 import 'package:first_app/pages/eighth_page.dart';
+
 import 'package:first_app/pages/todo_page.dart';
+
 import 'package:first_app/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +21,7 @@ import 'pages/sixth_page.dart';
 import 'pages/third_page.dart';
 import 'pages/seventh_page.dart';
 
-void main() async {
+void main_old() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
@@ -39,7 +43,10 @@ class TodoApp extends StatelessWidget {
   }
 }
 
-void main_old() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(
     MultiProvider(
       providers: [
@@ -56,6 +63,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primaryColor: Colors.amber,
@@ -64,7 +72,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(color: Colors.purple),
         ),
       ),
-      initialRoute: '/5',
+      initialRoute: '/9',
       routes: <String, WidgetBuilder>{
         '/1': (context) => FirstPage(),
         '/2': (context) => SecondPage(),

@@ -11,13 +11,13 @@ class ThirdPage extends StatelessWidget {
           bottom: TabBar(
             tabs: [
               Tab(
-                icon: Icon(Icons.cloud),
+                child: Text('24'),
               ),
               Tab(
-                icon: Icon(Icons.shower),
+                child: Text('25'),
               ),
               Tab(
-                icon: Icon(Icons.wb_sunny),
+                child: Text('26'),
               ),
             ],
           ),

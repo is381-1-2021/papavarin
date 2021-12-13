@@ -8,6 +8,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:lottie/lottie.dart';
 import 'package:midterm_app/model/profile.dart';
+import 'package:midterm_app/pages/home2.dart';
 import 'package:midterm_app/pages/homesignup.dart';
 
 class SignupPage extends StatefulWidget {
@@ -375,7 +376,7 @@ class _SignupPageState extends State<SignupPage> {
                                                       context,
                                                       MaterialPageRoute(
                                                           builder: (context) {
-                                                    return HomeScreen();
+                                                    return MyHomePage3();
                                                   }));
                                                 } on FirebaseAuthException catch (e) {
                                                   //print(e.message);

@@ -10,12 +10,12 @@ import 'package:provider/provider.dart';
 
 import '6flashcard.dart';
 
-class MyHomePage2 extends StatefulWidget {
+class MyHomePage1 extends StatefulWidget {
   @override
-  _MyHomePage2State createState() => _MyHomePage2State();
+  _MyHomePage1State createState() => _MyHomePage1State();
 }
 
-class _MyHomePage2State extends State<MyHomePage2> {
+class _MyHomePage1State extends State<MyHomePage1> {
   int _pageState = 0;
 
   double _popupWidth = 0;
